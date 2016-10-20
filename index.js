@@ -11,11 +11,11 @@ var svg = function(buffer) {
         .replace(/\#/g, '%23')
         .replace(/\"/g, "'");
 
-    return '"data:image/svg+xml;utf8,' + svg + '"';
+    return "url('data:image/svg+xml;utf8," + svg + "')";
 };
 
 var img = function(buffer, ext) {
-    return '"data:image/' + ext + ';base64,' + buffer.toString('base64') + '"';
+    return "url('data:image/" + ext + ";base64," + buffer.toString('base64') + "')";
 };
 
 module.exports = function(options) {
