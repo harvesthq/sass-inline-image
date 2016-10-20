@@ -4,20 +4,6 @@ var fs    = require('fs');
 var path  = require('path');
 var types = require('node-sass').types;
 
-var svg = function(buffer) {
-    var svg = buffer.toString()
-        .replace(/\n/g, '')
-        .replace(/\r/g, '')
-        .replace(/\#/g, '%23')
-        .replace(/\"/g, "'");
-
-    return "url('data:image/svg+xml;utf8," + svg + "')";
-};
-
-var img = function(buffer, ext) {
-    return "url('data:image/" + ext + ";base64," + buffer.toString('base64') + "')";
-};
-
 module.exports = function(options) {
     options = options || {};
 
@@ -35,7 +21,7 @@ module.exports = function(options) {
             var data = fs.readFileSync(filePath);
 
             var buffer = new Buffer(data);
-            var str = ext === 'svg' ? svg(buffer, ext) : img(buffer, ext);
+            var str = "url('data:image/" + (ext === 'svg' ? ext + '+xml' : ext)  + ";base64," + buffer.toString('base64') + "')";
             return types.String(str);
         }
     };
