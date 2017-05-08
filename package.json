@@ -1,12 +1,20 @@
 {
   "name": "sass-inline-image",
-  "version": "0.0.3",
-  "description": "inline images as base64",
+  "version": "0.0.4-custom",
+  "description": "Inline images as base64",
   "main": "index.js",
   "scripts": {},
   "author": "Joseph Clay",
   "license": "MIT",
   "dependencies": {
-    "node-sass": "^3.3.3"
-  }
+    "node-sass": "^4.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvesthq/sass-inline-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harvesthq/sass-inline-image/issues"
+  },
+  "homepage": "https://github.com/harvesthq/sass-inline-image#readme"
 }
