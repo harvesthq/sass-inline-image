@@ -2,9 +2,11 @@
 
 `npm i sass-inline-image`
 
-Use the `inline-image` function from Compass in [gulp-sass](https://www.npmjs.com/package/gulp-sass) ([node-sass](https://www.npmjs.com/package/node-sass)).
+Use the `inline-image` function from Compass in [node-sass](https://www.npmjs.com/package/node-sass).
 
-## usage
+# Examples
+
+## gulp
 
 ```js
 // in gulpfile
@@ -23,6 +25,31 @@ gulp.src('style.scss')
 ```scss
 body {
     background: inline-image('path/to/image.png');
+}
+```
+
+## ember-cli
+
+```js
+// In ember-cli-build.js
+var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var sassInlineImage = require('sass-inline-image');
+
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    // Add options here
+    sassOptions: {
+      functions: sassInlineImage({ base: 'public/assets/images' })
+    }
+  });
+
+  return app.toTree();
+};
+```
+
+```scss
+body {
+    background: inline-image('path/to/figure.svg');
 }
 ```
 
