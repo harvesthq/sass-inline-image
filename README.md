@@ -22,7 +22,7 @@ gulp.src('style.scss')
 
 ```scss
 body {
-    background: url(inline-image('path/to/image.png'));
+    background: inline-image('path/to/image.png');
 }
 ```
 
